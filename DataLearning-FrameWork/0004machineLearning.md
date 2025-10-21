@@ -7,12 +7,18 @@
 ---
 ## 데이터 전처리
 1. 가변수화
+```
+pd.get_dummies(data=df, columns)
+```
 
 
 2. 데이터 분리
 ```
 from sklearn.model_selection import train_test_splict
+
+x_trian, x_val, y_train, y_val = train_test_splict(x,y,train_size,random_state)
 ```
+
 
 ## 모델링 
 1. 설치하기
@@ -47,13 +53,23 @@ from sklearn.ensemble import LightGBM
 
 ```
 
+
 2. 선언하기
+```
+modle = 모듈명()
+```
 
 
 3. 학습하기
+```
+model.fit(x_train, y_train)
+```
 
 
 4. 예측하기
+```
+y_pred = model.predict(x_val)
+```
 
 
 5. 평가하기
@@ -77,4 +93,6 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 
 
+# 평가하는 코드
+평가(y_val, y_pred)
 ```
