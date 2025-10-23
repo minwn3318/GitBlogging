@@ -8,26 +8,21 @@
     3. 모델에 전달, 예측
     4. 예측 결과를 사라이 이해 가능한 형태로 후처리 후 반환
 
-### 형태
-```
-# 파이프 임포트
-from transformers import pipeline
+**대표 task**
+1. sentiment-analysis
+2. sero-shot-classification
+3. summarization
+4. translation
+5. text-generation
 
-# 할 일, 모델
-c = pipeline(task, model)
-```
-- 대표 task
-    1. sentiment-analysis
-    2. sero-shot-classification
-    3. summarization
-    4. translation
-    5. text-generation
 
 ---
 ## Hugging Face
 - 자연어 처리 및 인공지능 분야에서 가장 인기 있는 오픈소스 라이브러리와 모델을 제공하는 플랫폼
 - transformers 라이브러리, 모델 허브를 제공
 
+
+---
 ## AI API 
 - 직접 모델링을 할 수 없으니 API를 통해 모델를 로컬과 연결해서 사용함
 

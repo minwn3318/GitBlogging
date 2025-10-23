@@ -92,7 +92,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 es = EarlyStopping(monitor, min_delta, patience)
 
 # 학습
-model.fit(x,y,epochs, batch_size, callback=[es])
+model.fit(x,y,epochs, batch_size, callback=[es], validation_data=(X_valid, y_valid))
 ```
 
 

@@ -52,6 +52,7 @@ val_ts = Dataset.from_pandas(val)
 
 
 **3. 모델 이름 할당과 토크나이즈**
+> **AutoTokenizer.from_pretrained**
 ```
 # 토그나이저 임포트
 from transformers import AutoTokenizer
@@ -73,6 +74,7 @@ val_ts = val_ts.map(preprocess_function, batched=여러데이터?)
 ---
 ## 파인튜닝
 **1. 앞에서 토크나이징 한 사전학습 모델 준비**
+> **AutoModelForSequenceClassification.from_pretrained**
 ```
 # 사전학습 모델 임포트
 from transformers import AutoModelForSequenceClassification 
@@ -80,7 +82,7 @@ from transformers import AutoModelForSequenceClassification
 # 모델 분류 출력갯수 설정 
 n = 6
 # 모델할당
-model = AutoModelForSequenceClassification.from_pretrained(model_name,
+model = AutoModelForSequenceClassification.from_pretrained(m,
                                                            num_labels = n).to(device)
 ```
 
@@ -90,6 +92,7 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name,
 # 학습설정, 학습자 모듈 임포트
 from transformers import TrainingArguments, Trainer, EarlyStoppingCallback
 
+# 하이퍼파라미터
 training_args = TrainingArguments(
     output_dir = ,           # 출력 형태
     eval_strategy = ,            # 평가할 전략
@@ -105,6 +108,7 @@ training_args = TrainingArguments(
     report_to=             # 로그 시각화
 )
 
+# 학습자
 trainer = Trainer(
     model=,                  # 학습할 모델
     args=,                  # TrainingArguments
