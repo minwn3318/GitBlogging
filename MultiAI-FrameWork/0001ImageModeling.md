@@ -29,13 +29,14 @@ from keras.datasets import mnist, fashion_mnist
 ## 데이터 준비
 ### 구조 조정
 - 2차원의 데이터는 컬러 채널도 필요하므로 건수, 크기, 크기 채널로 변환시켜야 함
+- 흑백이면 1, 컬러면 3
 ```
 x_train = x_train.reshape(60000,28,28,1)
 x_val = x_val.reshape(10000,28,28,1)
 ```
 
 ### 스케일링
-- 이미지가 흑백일 때 0-1사이 의 값으로 변환시킨 것
+- 이미지의 색이 0~255이므로 255로 나누어 0-1사이 의 값으로 변환시킨 것
 ```
 x_train = x_train / 255.
 x_val = x_val / 255.
