@@ -69,3 +69,14 @@
 
 **recall**
     - 재현도, 실제있는 것들을 예측해서 찾은 것 (미탐 줄이면 높아짐)
+
+
+---
+## Instance Segmentaion
+- 객체를 픽셀 단위로 분리 + 동일 클래스를 개별 객체를 구분
+
+## YOLO 모델로 세그먼테이션을 수행
+- object detection + instance segmentaion
+    박스로 객체탐지
+    클래스로 객체 구분
+    픽셀 마스크로 인스턴스 별 픽셀 단위 구분
