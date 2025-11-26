@@ -108,3 +108,40 @@ enum 타입 매핑
 - 반면 주인이 아닌 쪽은 읽기만 가능하다
 - 주인은 mappedBY 속성을 사용하지 않는다
 - 주인이 아니라면 mappedBy 속성을 사용해서 속성의 값으로 연관관계 주인을 지정한다
+
+@joincolumn
+- 외래키를 매핑하는데 사용되는 어노테이션
+- 네임속석을 지정하지 않으면 기본적으로 필드명 + "_" + 참조하는 테이블의 @id컬럼명을 사용한다
+- news 테이블에는 user 테이블의 id를 fk-외래키로 갖게된다
+
+순한참조란?
+- User 엔티티에 속한 news 엔티티들을 그대로 뽑아오고, 각 news 엔티티에 해당하는 user도 그대로 뽑아오기 때문에 순환 참조가 발생하였다
+- Spring Data JPA에서는 @JsonManageReference와 @JsonBackRdference 어노테이션을 사용하여 순환 참조를 제어할 수 있다
+- @JsonManagedReference는 주인이 아닌 쪽, @JsonBackReference는 연관관계의 주인쪽에 붙여 사용하면 된다.
+
+- @OneToOne
+- @OneToMany
+- @ManyToOne
+- @ManyToMany
+- 관계형 데이터베이스는 정규화 된 테이블 2개로 다대다 관계를 표현할 수 없다
+테이블 설계 시, 다대다 관계는 중간에 테입릉ㄹ 하나 추가해서 두 개의 일대다 관계를 만들어주는 것이 일반적인 방법이다
+
+@Repository
+- Spring Data JPA에서 제공하는 인터페이스
+- JPA를 사용하여 생성후, entity 클래스와 pk의 타입을 매개변수로 하는 jpaRepository를 상속받으면 기본적인 crud 메서드가 자동으로 생성된다
+
+spring data commons
+스프링 데이터 프로젝트의 핵심으로 기본적인 추상화을 제공
+
+CrudRepository
+- 기능 : 기본적인 CRUD()메소드를 제공한다
+- 메소드 : save(), findById(), existByid(), count(), deleteById(), delete(), deleteALL()
+
+PagingAndsortingRepository
+- 상속 : CrudRepository
+- 기능 : CRUD 메소드 뿐만 아니라 페이징 및 정렬을 위한 메서드도 제공한다
+
+JpaRepository
+- 상속 : paggingAndSortingRepository, QueryByExmapleExcutor
+- 기능 : 기본적인 CRUD메서드를 포함하며, 페이징 및 정렬 예제에 따른 쿼리 실행도 가능하다
+
